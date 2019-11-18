@@ -95,7 +95,7 @@ class WildController extends AbstractController
 
         $programs = $this->getDoctrine()
             ->getRepository(Program::class)
-            ->findByCategory($category->getId(), ['id' => 'DESC'], 3);
+            ->findByCategory($category, ['id' => 'DESC'], 3);
 
         return $this->render("wild/category.html.twig", [
             'programs' => $programs,
