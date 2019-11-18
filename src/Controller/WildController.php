@@ -17,4 +17,13 @@ class WildController extends AbstractController
             'website' => 'Wild Séries',
         ]);
     }
+
+    /**
+     * @return Response
+     * @Route("/wild/show", name="wild_show")
+     */
+    public function show(): Response
+    {
+        //render twig
+    }
 }
