@@ -6,10 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class WildController
+ * @package App\Controller
+ * @Route("/wild", name="wild_")
+ */
 class WildController extends AbstractController
 {
     /**
-     * @Route("/wild", name="wild_index")
+     * @Route("", name="index")
      */
     public function index() :Response
     {
@@ -19,11 +24,17 @@ class WildController extends AbstractController
     }
 
     /**
+     * @param string $slug
      * @return Response
-     * @Route("/wild/show/{page}", name="wild_show")
+     * @Route("/show/{slug}",
+     *      requirements={"slug"="^[a-z0-9-]+$"},
+     *      defaults={"slug"=""},
+     *      name="show"
+     * )
      */
-    public function show(int $page): Response
+    public function show(string $slug): Response
     {
-        return $this->render("wild/show.html.twig", ["page" => $page]);
+        $title = ucwords(str_replace("-"," ", $slug));
+        return $this->render("wild/show.html.twig", ["title" => $title]);
     }
 }
