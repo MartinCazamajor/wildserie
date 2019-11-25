@@ -3,9 +3,11 @@
 {% block title %}All episodes{% endblock %}
 
 {% block body %}
+    <h2>Saison {{ season.number }} de {{ program.title }}</h2>
+    <p>{{ season.description }}</p>
     {% for episode in episodes %}
         <div>
-            <h2>{{ episode.number }} / {{ episode.title }}</h2>
+            <h3>{{ episode.number }} / {{ episode.title }}</h3>
             <p>{{ episode.synopsis }}</p>
         </div>
     {% else %}

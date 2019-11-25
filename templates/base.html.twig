@@ -12,8 +12,9 @@
     <header>
         {% include "navbar.html.twig" %}
     </header>
+    <div class="container">
         {% block body %}{% endblock %}
-
+    </div>
         {% block javascripts %}
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
             {{ encore_entry_script_tags('app') }}

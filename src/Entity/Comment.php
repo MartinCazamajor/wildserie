@@ -30,7 +30,7 @@ class Comment
      * @ORM\ManyToOne(targetEntity="App\Entity\Episode", inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $episode_id;
+    private $episode;
 
     public function getId(): ?int
     {
@@ -61,14 +61,14 @@ class Comment
         return $this;
     }
 
-    public function getEpisodeId(): ?Episode
+    public function getEpisode(): ?Episode
     {
-        return $this->episode_id;
+        return $this->episode;
     }
 
-    public function setEpisodeId(?Episode $episode_id): self
+    public function setEpisode(?Episode $episode): self
     {
-        $this->episode_id = $episode_id;
+        $this->episode = $episode;
 
         return $this;
     }

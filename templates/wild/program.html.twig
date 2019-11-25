@@ -11,7 +11,6 @@
             {% for season in seasons %}
                 <div>
                     <h2><a href="{{ path("wild_show_season") ~ "/" ~ season.id }}">Saison {{ loop.index }}</a></h2>
-                    <p>{{ season.description }}</p>
                 </div>
             {% endfor %}
         </div>

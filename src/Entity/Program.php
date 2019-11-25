@@ -40,7 +40,7 @@ class Program
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="program_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="program")
      */
     private $seasons;
 
