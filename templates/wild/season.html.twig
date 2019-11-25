@@ -7,7 +7,7 @@
     <p>{{ season.description }}</p>
     {% for episode in episodes %}
         <div>
-            <h3>{{ episode.number }} / {{ episode.title }}</h3>
+            <h3><a href="{{ path('wild_show_episode', {'id': episode.id }) }}">{{ episode.number }} / {{ episode.title }}</a></h3>
             <p>{{ episode.synopsis }}</p>
         </div>
     {% else %}
