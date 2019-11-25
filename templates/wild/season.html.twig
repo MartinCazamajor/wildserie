@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All episodes{% endblock %}
+
+{% block body %}
+    {% for episode in episodes %}
+        <div>
+            <h2>{{ episode.number }} / {{ episode.title }}</h2>
+            <p>{{ episode.synopsis }}</p>
+        </div>
+    {% else %}
+        Aucun épisode trouvé.
+    {% endfor %}
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+{% endblock %}

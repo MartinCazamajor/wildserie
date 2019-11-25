@@ -112,11 +112,11 @@ class WildController extends AbstractController
      *     name="show_program")
      * @return Response
      */
-    public function showByProgram(string $programName): Response
+    public function showByProgram(?string $programName): Response
     {
         if (!$programName) {
             throw $this
-            ->createNotFoundException("No program name has been sent to find a program in program's table.");
+            ->createNotFoundException("No program name has been sent to find seasons in season's table.");
         }
         $programName = preg_replace(
             '/-/',
@@ -129,6 +129,30 @@ class WildController extends AbstractController
         return $this->render("wild/program.html.twig", [
             "program" => $program,
             "seasons" => $seasons,
+        ]);
+    }
+
+    /**
+     * @param int $id
+     * @return Response
+     * @Route("/season/{id}",
+     *     requirements={"id"="^[0-9-]+$"},
+     *     defaults={"id"=null},
+     *     name="show_season")
+     */
+    public function showBySeason(?int $id): Response
+    {
+        if (!$id) {
+            throw $this
+                ->createNotFoundException("No season has been sent to find episodes in episode's table.");
+        }
+        $season = $this->getDoctrine()
+            ->getRepository(Season::class)
+            ->findOneById($id);
+        $episodes = $season->getEpisodes();
+        return $this->render("wild/season.html.twig", [
+            "season" => $season,
+            "episodes" => $episodes,
         ]);
     }
 
