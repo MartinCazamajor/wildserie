@@ -1,2 +1,5 @@
 lien video quete 09 (des épisodes ne sont renseignés que pour la saison 1, je voulais montrer le message d'erreur si aucun épisode n'est présent)
 https://www.loom.com/share/c8c8ce0e7fe54b0aabf0d3c72b859a6a
+
+lien video quete 10:
+https://www.loom.com/share/b86781d198e54003b3292ab34c544ebe
