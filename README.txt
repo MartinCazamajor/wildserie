@@ -6,3 +6,6 @@ https://www.loom.com/share/b86781d198e54003b3292ab34c544ebe
 
 lien video quete 11:
 https://www.loom.com/share/268026428c3e45388216dfe88226347d
+
+lien video quete 12:
+https://www.loom.com/share/c7df79fe15cb49b1a00e661c3ae93a09
