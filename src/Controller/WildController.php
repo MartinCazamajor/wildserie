@@ -6,7 +6,7 @@ use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
-use App\Form\ProgramSearchType;
+use App\Form\CategoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,11 +33,10 @@ class WildController extends AbstractController
                 "No program found in program's table."
                 );
         }
+        $category = new Category();
         $form = $this->createForm(
-            ProgramSearchType::class,
-            null,
-            ['method' => Request::METHOD_GET]
-        );
+            CategoryType::class,
+            $category);
 
         return $this->render(
             'wild/index.html.twig', [
