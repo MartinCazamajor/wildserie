@@ -33,15 +33,10 @@ class WildController extends AbstractController
                 "No program found in program's table."
                 );
         }
-        $category = new Category();
-        $form = $this->createForm(
-            CategoryType::class,
-            $category);
 
         return $this->render(
             'wild/index.html.twig', [
                 'programs' => $programs,
-                'form' => $form->createView(),
                 ]);
     }
 
