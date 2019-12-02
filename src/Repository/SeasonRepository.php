@@ -20,7 +20,7 @@ class SeasonRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Season[] Returns an array of Season objects
+    //  * @return SeasonFixtures[] Returns an array of SeasonFixtures objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class SeasonRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Season
+    public function findOneBySomeField($value): ?SeasonFixtures
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')
