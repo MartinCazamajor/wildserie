@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 
 
 use App\Entity\Program;
+use App\Service\Slugify;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -36,14 +37,20 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
             'summary' => "La série se déroule au tout début de l épidémie relatée dans la série mère The Walking Dead et se passe dans la ville de Los Angeles, et non à Atlanta. Madison est conseillère dans un lycée de Los Angeles. Depuis la mort de son mari, elle élève seule ses deux enfants : Alicia, excellente élève qui découvre les premiers émois amoureux, et son grand frère Nick qui a quitté la fac et a sombré dans la drogue.",
             'category' => "categorie_4",
         ],
+        'jéjé' => [
+            'summary' => "une bien bonne série",
+            'category' => "categorie_3",
+        ]
     ];
     public function load(ObjectManager $manager)
     {
         $i=0;
+        $slugify = new Slugify();
         foreach (self::PROGRAMS as $title => $data) {
             $program = new Program();
             $program->setTitle($title);
             $program->setSummary($data['summary']);
+            $program->setSlug($slugify->generate($program->getTitle()));
             $manager->persist($program);
             $program->setCategory($this->getReference($data['category']));
             $this->addReference('program_' . $i, $program);
