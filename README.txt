@@ -22,5 +22,7 @@ https://www.loom.com/share/e03a31c9f97e4e7a86a6173223e31102
 lien video quete 17:
 https://www.loom.com/share/fe7e7b33d9004d179a7ce2bbb16444f9
 
+lien video quete 18:
+https://www.loom.com/share/1d6388234dcf4230a19f966ff0f0a702
 
 

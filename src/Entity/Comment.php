@@ -35,14 +35,10 @@ class Comment
     private $episode;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="comment")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $author;
-
-    public function __construct()
-    {
-        $this->author = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -85,33 +81,14 @@ class Comment
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getUser(): Collection
+    public function getAuthor(): ?User
     {
         return $this->author;
     }
 
-    public function addUser(User $author): self
+    public function setAuthor(?User $author): self
     {
-        if (!$this->author->contains($author)) {
-            $this->author[] = $author;
-            $author->setComment($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $author): self
-    {
-        if ($this->author->contains($author)) {
-            $this->author->removeElement($author);
-            // set the owning side to null (unless already changed)
-            if ($author->getComment() === $this) {
-                $author->setComment(null);
-            }
-        }
+        $this->author = $author;
 
         return $this;
     }

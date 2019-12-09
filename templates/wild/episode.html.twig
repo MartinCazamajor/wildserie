@@ -5,4 +5,24 @@
     <h2>{{ episode.title }}</h2>
     <p class="font-italic">Episode {{ episode.number }}, saison {{ season.number }} de la série {{ program.title }}</p>
     <p>{{ episode.synopsis }}</p>
+
+    <h3 class="row">Commentaires et avis</h3>
+
+    {% for comment in episode.comments %}
+    <div class="row">
+        <div class="card" style="width: 22rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ comment.author.email }}</h5>
+                <p class="card-subtitle">Rating: {{ comment.rate }} / 10</p>
+                <p class="card-text">{{ comment.comment }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% if is_granted('ROLE_SUBSCRIBERAUTHOR') %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    {% endif %}
 {% endblock %}
