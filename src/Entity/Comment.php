@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +33,16 @@ class Comment
      * @ORM\JoinColumn(nullable=false)
      */
     private $episode;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="comment")
+     */
+    private $author;
+
+    public function __construct()
+    {
+        $this->author = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +81,37 @@ class Comment
     public function setEpisode(?Episode $episode): self
     {
         $this->episode = $episode;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUser(): Collection
+    {
+        return $this->author;
+    }
+
+    public function addUser(User $author): self
+    {
+        if (!$this->author->contains($author)) {
+            $this->author[] = $author;
+            $author->setComment($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $author): self
+    {
+        if ($this->author->contains($author)) {
+            $this->author->removeElement($author);
+            // set the owning side to null (unless already changed)
+            if ($author->getComment() === $this) {
+                $author->setComment(null);
+            }
+        }
 
         return $this;
     }
