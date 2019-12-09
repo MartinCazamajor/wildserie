@@ -19,5 +19,8 @@ https://www.loom.com/share/1cf7c2dfb21f430d99ce2a081e707978
 lien viedo quete 15:
 https://www.loom.com/share/e03a31c9f97e4e7a86a6173223e31102
 
+lien video quete 17:
+https://www.loom.com/share/fe7e7b33d9004d179a7ce2bbb16444f9
+
 
 
